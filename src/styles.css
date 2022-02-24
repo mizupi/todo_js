@@ -31,7 +31,7 @@ button:hover {
   border-radius: 8px;
 }
 
-.inconpleted-area {
+.incompleted-area {
   background-color: #c6ffe2;
   width: 400px;
   min-height: 200px;
@@ -40,7 +40,7 @@ button:hover {
   border-radius: 8px;
 }
 
-.conpleted-area {
+.completed-area {
   background-color: #ffffe0;
   width: 400px;
   min-height: 200px;

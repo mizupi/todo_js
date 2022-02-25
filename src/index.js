@@ -4,11 +4,19 @@ const onclickAdd = () => {
   const inputText = document.getElementById("add-text").value;
   document.getElementById("add-text").value = "";
 
+  creatIncompletedList(inputText);
+};
+
+const deleteFromIncompletedList = (target) => {
+  document.getElementById("incompleted-list").removeChild(target);
+};
+
+const creatIncompletedList = (text) => {
   const li = document.createElement("li");
   li.className = "list-row";
 
   const p = document.createElement("p");
-  p.innerText = inputText;
+  p.innerText = text;
 
   const completedButton = document.createElement("button");
   completedButton.innerText = "完了";
@@ -26,6 +34,13 @@ const onclickAdd = () => {
 
     const backButton = document.createElement("button");
     backButton.innerText = "戻す";
+    backButton.addEventListener("click", () => {
+      const deleteTarget = backButton.closest("li");
+      document.getElementById("completed-list").removeChild(deleteTarget);
+
+      const text = deleteTarget.querySelector("p").innerText;
+      creatIncompletedList(text);
+    });
 
     addTarget.appendChild(p);
     addTarget.appendChild(backButton);
@@ -44,10 +59,6 @@ const onclickAdd = () => {
   li.appendChild(deleteButton);
 
   document.getElementById("incompleted-list").appendChild(li);
-};
-
-const deleteFromIncompletedList = (target) => {
-  document.getElementById("incompleted-list").removeChild(target);
 };
 
 document
